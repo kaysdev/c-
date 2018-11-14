@@ -695,7 +695,6 @@ object Form5: TForm5
     00FFFF0003FFFF8007FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
   OldCreateOrder = False
   Position = poDesktopCenter
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object Button1: TButton
@@ -727,7 +726,6 @@ object Form5: TForm5
     Left = 256
   end
   object ADOQuery1: TADOQuery
-    Active = True
     Connection = ADOConnection1
     CursorType = ctStatic
     Parameters = <>
@@ -789,5 +787,42 @@ object Form5: TForm5
     DataSet = ADOQuery1
     Left = 320
     Top = 8
+  end
+  object ADODataSet1: TADODataSet
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    CommandText = 'select * from Job'
+    Parameters = <>
+    Left = 376
+    Top = 8
+    object ADODataSet1job_id: TAutoIncField
+      FieldName = 'job_id'
+      ReadOnly = True
+    end
+    object ADODataSet1job_number: TIntegerField
+      FieldName = 'job_number'
+    end
+    object ADODataSet1customer_id: TIntegerField
+      FieldName = 'customer_id'
+    end
+    object ADODataSet1job_description: TMemoField
+      FieldName = 'job_description'
+      BlobType = ftMemo
+    end
+    object ADODataSet1status_id: TIntegerField
+      FieldName = 'status_id'
+    end
+    object ADODataSet1assigned_to: TIntegerField
+      FieldName = 'assigned_to'
+    end
+    object ADODataSet1time_spent: TFloatField
+      FieldName = 'time_spent'
+    end
+    object ADODataSet1entry_date: TDateTimeField
+      FieldName = 'entry_date'
+    end
+    object ADODataSet1last_update_date: TDateTimeField
+      FieldName = 'last_update_date'
+    end
   end
 end

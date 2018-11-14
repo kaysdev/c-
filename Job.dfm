@@ -695,7 +695,6 @@ object Form6: TForm6
     00FFFF0003FFFF8007FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
   OldCreateOrder = False
   Position = poDesktopCenter
-  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object btnSave: TButton
@@ -805,40 +804,34 @@ object Form6: TForm6
         MaxLength = 8
         TabOrder = 0
       end
-      object ddlCustomer: TDBLookupComboBox
-        Left = 112
-        Top = 57
-        Width = 185
-        Height = 21
-        DataField = 'customer_id'
-        DataSource = DataSource_Job
-        KeyField = 'customer_id'
-        ListField = 'first_name'
-        ListSource = DataSource_Customer
-        TabOrder = 2
-      end
-      object ddlStatus: TDBLookupComboBox
-        Left = 112
-        Top = 204
-        Width = 185
-        Height = 21
-        DataField = 'status_id'
-        DataSource = DataSource_Job
-        KeyField = 'status_id'
-        ListField = 'status_name'
-        ListSource = DataSource_Status
-        TabOrder = 3
-      end
       object ddlAssigned: TDBLookupComboBox
         Left = 112
-        Top = 248
+        Top = 245
         Width = 185
         Height = 21
-        DataField = 'assigned_to'
-        DataSource = DataSource_Job
         KeyField = 'login_id'
         ListField = 'user_name'
         ListSource = DataSource_assigned
+        TabOrder = 2
+      end
+      object ddlCustomer: TDBLookupComboBox
+        Left = 112
+        Top = 54
+        Width = 185
+        Height = 21
+        KeyField = 'customer_id'
+        ListField = 'first_name'
+        ListSource = DataSource_Customer
+        TabOrder = 3
+      end
+      object ddlStatus: TDBLookupComboBox
+        Left = 112
+        Top = 202
+        Width = 185
+        Height = 21
+        KeyField = 'status_id'
+        ListField = 'status_name'
+        ListSource = DataSource_Status
         TabOrder = 4
       end
     end
@@ -859,30 +852,6 @@ object Form6: TForm6
     TableName = 'Customer'
     Left = 16
     Top = 72
-    object ADOTable_customercustomer_id: TAutoIncField
-      FieldName = 'customer_id'
-      ReadOnly = True
-    end
-    object ADOTable_customerfirst_name: TStringField
-      FieldName = 'first_name'
-      Size = 30
-    end
-    object ADOTable_customerlast_name: TStringField
-      FieldName = 'last_name'
-      Size = 30
-    end
-    object ADOTable_customermobile_number: TStringField
-      FieldName = 'mobile_number'
-    end
-    object ADOTable_customeris_active: TBooleanField
-      FieldName = 'is_active'
-    end
-    object ADOTable_customerentry_date: TDateTimeField
-      FieldName = 'entry_date'
-    end
-    object ADOTable_customerlast_update_date: TDateTimeField
-      FieldName = 'last_update_date'
-    end
   end
   object DataSource_Customer: TDataSource
     DataSet = ADOTable_customer
@@ -890,41 +859,11 @@ object Form6: TForm6
     Top = 128
   end
   object ADOTable_job: TADOTable
-    Active = True
     Connection = ADOConnection1
     CursorType = ctStatic
     TableName = 'Job'
     Left = 32
     Top = 176
-    object ADOTable_jobjob_id: TAutoIncField
-      FieldName = 'job_id'
-      ReadOnly = True
-    end
-    object ADOTable_jobjob_number: TIntegerField
-      FieldName = 'job_number'
-    end
-    object ADOTable_jobcustomer_id: TIntegerField
-      FieldName = 'customer_id'
-    end
-    object ADOTable_jobjob_description: TMemoField
-      FieldName = 'job_description'
-      BlobType = ftMemo
-    end
-    object ADOTable_jobstatus_id: TIntegerField
-      FieldName = 'status_id'
-    end
-    object ADOTable_jobassigned_to: TIntegerField
-      FieldName = 'assigned_to'
-    end
-    object ADOTable_jobtime_spent: TFloatField
-      FieldName = 'time_spent'
-    end
-    object ADOTable_jobentry_date: TDateTimeField
-      FieldName = 'entry_date'
-    end
-    object ADOTable_joblast_update_date: TDateTimeField
-      FieldName = 'last_update_date'
-    end
   end
   object DataSource_Job: TDataSource
     DataSet = ADOTable_job
@@ -938,22 +877,6 @@ object Form6: TForm6
     TableName = 'Status'
     Left = 16
     Top = 280
-    object ADOTable_Statusstatus_id: TAutoIncField
-      FieldName = 'status_id'
-      ReadOnly = True
-    end
-    object ADOTable_Statusstatus_name: TStringField
-      FieldName = 'status_name'
-    end
-    object ADOTable_Statusis_active: TBooleanField
-      FieldName = 'is_active'
-    end
-    object ADOTable_Statusentry_date: TDateTimeField
-      FieldName = 'entry_date'
-    end
-    object ADOTable_Statuslast_update_date: TDateTimeField
-      FieldName = 'last_update_date'
-    end
   end
   object DataSource_Status: TDataSource
     DataSet = ADOTable_Status
@@ -967,26 +890,6 @@ object Form6: TForm6
     TableName = 'login'
     Left = 80
     Top = 184
-    object ADOTable_assignedlogin_id: TAutoIncField
-      FieldName = 'login_id'
-      ReadOnly = True
-    end
-    object ADOTable_assigneduser_name: TStringField
-      FieldName = 'user_name'
-      Size = 50
-    end
-    object ADOTable_assignedpassword: TStringField
-      FieldName = 'password'
-    end
-    object ADOTable_assignedis_active: TBooleanField
-      FieldName = 'is_active'
-    end
-    object ADOTable_assignedentry_date: TDateTimeField
-      FieldName = 'entry_date'
-    end
-    object ADOTable_assignedlast_update_date: TDateTimeField
-      FieldName = 'last_update_date'
-    end
   end
   object DataSource_assigned: TDataSource
     DataSet = ADOTable_assigned

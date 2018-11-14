@@ -4,6 +4,7 @@
 #pragma hdrstop
 
 #include "Job.h"
+#include "JobList.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -59,6 +60,9 @@ void __fastcall TForm6::btnSaveClick(TObject *Sender)
 			ADOQuery->ExecSQL(); // this will save the customer record in database
 			ADOQuery->Close();
 			ShowMessage("Save Record!!!");
+			this->Close();
+			Form5->ADODataSet1->Close();
+			Form5->ADODataSet1->Open();
 		}
 		catch (EADOError& e)
 		{

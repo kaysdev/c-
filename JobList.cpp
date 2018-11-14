@@ -51,20 +51,55 @@ void __fastcall TForm5::FormCreate(TObject *Sender)
 	int rowCounter = 1;
 
     //to fill customer data in the TStringGrid
-	//while (!DataSource1->DataSet->Eof)
-	//{
-	  //	gridJobList->Cells[0][rowCounter] =
-		//			ADOTable1->FieldByName("customer_id")->AsString;
-		//gridJobList->Cells[1][rowCounter] =
-		//			ADOTable1->FieldByName("first_name")->AsString;
-		//gridJobList->Cells[2][rowCounter] =
-		//			ADOTable1->FieldByName("last_name")->AsString;
-		//gridJobList->Cells[3][rowCounter] =
-		//			ADOTable1->FieldByName("mobile_number")->AsString;
-		//rowCounter++;
-		//ADOTable1->Next();
-	//}
-	//gridCustomerList->RowCount = rowCounter;
-	//ADOTable1->First();
+//	while (!DataSource1->DataSet->Eof)
+//	{
+//	  	gridJobList->Cells[0][rowCounter] =
+//					ADOTable1->FieldByName("customer_id")->AsString;
+//		gridJobList->Cells[1][rowCounter] =
+//					ADOTable1->FieldByName("first_name")->AsString;
+//		gridJobList->Cells[2][rowCounter] =
+//					ADOTable1->FieldByName("last_name")->AsString;
+//		gridJobList->Cells[3][rowCounter] =
+//					ADOTable1->FieldByName("mobile_number")->AsString;
+//		rowCounter++;
+//		ADOTable1->Next();
+//	}
+//	gridCustomerList->RowCount = rowCounter;
+//	ADOTable1->First();
+	gridJobList->RowCount = ADODataSet1->RecordCount+1;
+	//to fill customer data in the TStringGrid
+	while (!ADODataSet1->Eof)
+	{
+		gridJobList->Cells[0][rowCounter] =
+					/*ADOTable1->FieldByName("customer_id")->AsString;*/
+					ADODataSet1->FieldByName("job_id")->AsString;
+		gridJobList->Cells[1][rowCounter] =
+					/*ADOTable1->FieldByName("first_name")->AsString;*/
+					ADODataSet1->FieldByName("job_number")->AsString;
+		gridJobList->Cells[2][rowCounter] =
+					/*ADOTable1->FieldByName("last_name")->AsString;*/
+					ADODataSet1->FieldByName("job_description")->AsString;
+		gridJobList->Cells[3][rowCounter] =
+					/*ADOTable1->FieldByName("mobile_number")->AsString;*/
+					ADODataSet1->FieldByName("customer_id")->AsString;
+		gridJobList->Cells[4][rowCounter] =
+					/*ADOTable1->FieldByName("customer_id")->AsString;*/
+					ADODataSet1->FieldByName("mobile_number")->AsString;
+		gridJobList->Cells[5][rowCounter] =
+					/*ADOTable1->FieldByName("first_name")->AsString;*/
+					ADODataSet1->FieldByName("status_id")->AsString;
+		gridJobList->Cells[6][rowCounter] =
+					/*ADOTable1->FieldByName("last_name")->AsString;*/
+					ADODataSet1->FieldByName("assigned_to")->AsString;
+		gridJobList->Cells[7][rowCounter] =
+					/*ADOTable1->FieldByName("mobile_number")->AsString;*/
+					ADODataSet1->FieldByName("time_spent")->AsString;
+		rowCounter++;
+		ADODataSet1->Next();
+	}
+
+	ADODataSet1->First();
 }
 //---------------------------------------------------------------------------
+
+
