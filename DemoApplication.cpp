@@ -3,12 +3,12 @@
 #include <vcl.h>
 #pragma hdrstop
 //---------------------------------------------------------------------------
-USEFORM("..\Login.cpp", Form1);
 USEFORM("Dashboard.cpp", Form2);
 USEFORM("CustomerList.cpp", Form4);
 USEFORM("Customer.cpp", Form3);
 USEFORM("JobList.cpp", Form5);
 USEFORM("Job.cpp", Form6);
+USEFORM("Login.cpp", Form1);
 //---------------------------------------------------------------------------
 WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
@@ -16,7 +16,6 @@ WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	{
 		Application->Initialize();
 		SetApplicationMainFormOnTaskBar(Application, true);
-		Application->CreateForm(__classid(TForm1), &Form1);
 		Application->CreateForm(__classid(TForm2), &Form2);
 		Application->CreateForm(__classid(TForm4), &Form4);
 		Application->CreateForm(__classid(TForm3), &Form3);

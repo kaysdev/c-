@@ -697,6 +697,8 @@ object Form1: TForm1
   OldCreateOrder = False
   Position = poDesktopCenter
   OnShow = FormShow
+  ExplicitWidth = 320
+  ExplicitHeight = 240
   PixelsPerInch = 96
   TextHeight = 13
   object lblUsername: TLabel
@@ -735,7 +737,7 @@ object Form1: TForm1
     Top = 13
     Width = 145
     Height = 21
-    ItemHeight = 13
+    ItemHeight = 0
     TabOrder = 0
     Text = 'Select User'
   end
